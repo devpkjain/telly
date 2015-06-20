@@ -1,0 +1,79 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:1.2.3'
+    classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+  }
+}
+
+android {
+  compileSdkVersion 22
+  buildToolsVersion "22.0.1"
+
+  defaultConfig {
+    applicationId "com.devpkjain.telly"
+    minSdkVersion 15
+    targetSdkVersion 22
+    versionCode 1
+    versionName "1.0"
+  }
+
+  signingConfigs {
+    debug {
+      storeFile file('keystore/debug.keystore')
+      keyAlias 'debug'
+      keyPassword 'pkjain78'
+      storePassword 'pkjain78'
+    }
+    release {
+      storeFile file('keystore/release.keystore')
+    }
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+    }
+  }
+  compileOptions {
+    encoding "UTF-8"
+    sourceCompatibility JavaVersion.VERSION_1_7
+    targetCompatibility JavaVersion.VERSION_1_7
+  }
+}
+final DAGGER_VERSION = '2.0'
+final OK_HTTP_VERSION = '2.3.0'
+final AUTO_PARCEL_VERSION = '0.3'
+
+dependencies {
+  compile fileTree(include: ['*.jar'], dir: 'libs')
+  compile 'com.android.support:appcompat-v7:22.2.0'
+  compile 'com.android.support:recyclerview-v7:22.2.0'
+  compile 'com.android.support:cardview-v7:22.2.0'
+  compile 'com.android.support:palette-v7:22.2.0'
+  compile 'com.android.support:design:22.2.0'
+  compile 'com.squareup.picasso:picasso:2.4.0'
+  compile 'uk.co.chrisjenx:calligraphy:2.1.0'
+  compile fileTree(dir: 'assets', include: ['*.ttf'])
+
+
+  //Dependency Injection
+  apt "com.google.dagger:dagger-compiler:${DAGGER_VERSION}"
+  compile "com.google.dagger:dagger:${DAGGER_VERSION}"
+  provided 'org.glassfish:javax.annotation:10.0-b28'
+
+  //Rx
+  compile 'io.reactivex:rxjava:1.0.9'
+  compile 'io.reactivex:rxandroid:0.24.0'
+
+
+  //Square
+  compile "com.squareup.okhttp:okhttp:${OK_HTTP_VERSION}"
+  compile "com.squareup.okhttp:okhttp-urlconnection:${OK_HTTP_VERSION}"
+  compile 'com.jakewharton:butterknife:6.1.0'
+  compile 'com.squareup.retrofit:retrofit:1.9.0'
+}

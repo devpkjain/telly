@@ -1,0 +1,41 @@
+<resources>
+
+  <style name="AppTheme"
+      parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="colorPrimary">@color/primary</item> 
+    <item name="colorPrimaryDark">@color/primary_dark</item> 
+    <item name="colorControlHighlight">@color/accent_translucent</item> 
+    <item name="android:colorControlHighlight">@color/accent_translucent</item> 
+    <item name="colorAccent">@color/accent</item>
+    <item name="selectableItemBackground">@drawable/selectable_item_background</item>
+    <item name="android:selectableItemBackground">@drawable/selectable_item_background</item>
+    <item name="android:windowSharedElementEnterTransition">@android:transition/move</item>
+    <item name="android:windowSharedElementExitTransition">@android:transition/move</item>
+    <item name="android:windowSharedElementsUseOverlay">false</item>
+    <item name="android:windowTranslucentStatus">true</item>
+  </style>
+
+  <style name="MarStyle">
+    <item name="android:layout_width">?attr/actionBarSize</item>
+    <item name="android:layout_height">?attr/actionBarSize</item>
+    <item name="android:layout_margin">@dimen/spacing_large</item>
+    <item name="android:background">@drawable/item_background</item>
+    <item name="android:src">@drawable/ic_add_black</item>
+    <item name="android:outlineProvider">background</item>
+    <item name="android:stateListAnimator">@anim/item_elevation</item>
+  </style>
+
+  <style name="TextAppearance.TellyFonts"
+      parent="android:TextAppearance">
+  </style>
+
+  <style name="TextAppearance.TellyFonts.PunkRockShow">
+    <item name="fontPath">fonts/PunkRockShow.ttf</item>
+  </style>
+
+  <color name="primary">#D12A38</color>
+  <color name="primary_dark">#921D27</color>
+  <color name="accent">#FFEB3B</color>
+  <color name="accent_translucent">#80FFEB3B</color>
+  <color name="accent_bright">#FFF493</color>
+</resources>

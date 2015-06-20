@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+
+    android:orientation="vertical"
+    android:fillViewport="true"
+    android:layout_height="match_parent">
+  <LinearLayout
+      android:layout_width="match_parent"
+
+      android:orientation="vertical"
+      android:layout_height="match_parent">
+    <include layout="@layout/includes_toolbar"/>
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_margin="10dp"
+        android:background="@android:color/holo_green_light"
+        android:scaleType="centerCrop"/>
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+        android:text="BREAKING BAD"
+        android:textSize="40sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:padding="10dp"
+        android:textColor="@android:color/holo_red_light"/>
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textSize="24dp"
+        android:text="AIRING ON: AMC (Returning Aug 11TH, 2015)"
+        android:padding="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@android:color/holo_blue_light"/>
+    <TextView
+        android:id="@+id/textDetails"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:textSize="14dp"
+        android:text="Brayn Cranston"
+        android:padding="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@android:color/holo_red_light"/>
+
+    <TextView
+        android:id="@+id/textShowListing"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:textSize="24dp"
+        android:text="SHOW LISTINGS"
+        android:padding="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@android:color/holo_red_light"/>
+
+    <TextView
+        android:id="@+id/textToDay"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:textSize="18dp"
+        android:text="TODAY"
+        android:padding="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@android:color/white"
+        android:background="@android:color/holo_red_light"/>
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"></ListView>
+  </LinearLayout>
+</ScrollView>

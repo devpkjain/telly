@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Telly</string>
+  <string name="title_trending">TRENDING SHOWS</string>
+  <string name="title_full_schedule">FULL SCHEDULE</string>
+  <string name="title_search">SEARCH FOR SHOWS</string>
+  <string name="title_shows">SHOWS</string>
+  <string name="action_settings">Settings</string>
+  <string name="lorem_ipsum">Lorem ipsum r enim.</string>
+  <string name="home">Home</string>
+  <string name="favourite">Favourite</string>
+  <string name="downloaded">Downloaded</string>
+  <string name="more">More</string>
+  <string name="settings">Settings</string>
+</resources>
