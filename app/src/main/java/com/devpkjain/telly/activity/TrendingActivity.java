@@ -11,7 +11,6 @@ import android.widget.ImageButton;
 import com.devpkjain.telly.R;
 import com.devpkjain.telly.adapters.RecyclerViewAdapter;
 import com.devpkjain.telly.model.CurrentTVShow;
-import com.devpkjain.telly.model.CurrentTVShowResult;
 import com.devpkjain.telly.service.TVGuideService;
 import java.util.ArrayList;
 import java.util.List;
@@ -73,11 +72,11 @@ public class TrendingActivity extends BaseDrawerActivity implements RecyclerView
     };
   }
 
-  private Action1<CurrentTVShowResult> onSuccess() {
-    return new Action1<CurrentTVShowResult>() {
-      @Override public void call(CurrentTVShowResult result) {
-        if (result != null && result.getList().size() > 0) {
-          initList(result.getList());
+  private Action1<List<CurrentTVShow>> onSuccess() {
+    return new Action1<List<CurrentTVShow>>() {
+      @Override public void call(List<CurrentTVShow> result) {
+        if (result != null && result.size() > 0) {
+          initList(result);
         }
       }
     };

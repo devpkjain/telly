@@ -1,9 +1,9 @@
 package com.devpkjain.telly.service;
 
 import com.devpkjain.telly.model.CurrentTVShow;
-import com.devpkjain.telly.model.CurrentTVShowResult;
-import com.devpkjain.telly.service.vo.CurrentTVShowListEnvelope;
-import com.devpkjain.telly.service.vo.CurrentTVShowsEnvelope;
+import com.devpkjain.telly.service.vo.CurrentTVShowEnvelope;
+import java.util.ArrayList;
+import java.util.List;
 import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
 import retrofit.http.GET;
@@ -37,16 +37,14 @@ public class TVGuideService {
         .create(RealTVScheduleService.class);
   }
 
-  public Observable<CurrentTVShowResult> getTrendingShows() {
-    return mTVGuideWebService.getTrendingShows().map(new Func1<CurrentTVShowListEnvelope, CurrentTVShowResult>() {
+  public Observable<List<CurrentTVShow>> getTrendingShows() {
+    return mTVGuideWebService.getTrendingShows().map(new Func1<List<CurrentTVShowEnvelope>, List<CurrentTVShow>>() {
 
-      @Override public CurrentTVShowResult call(final CurrentTVShowListEnvelope data) {
-        CurrentTVShowResult result = new CurrentTVShowResult();
-        result.getList().clear();
-        for (int i = 0; i < data.showList.size(); i++) {
-          CurrentTVShowsEnvelope dataItem = data.showList.get(i);
-          CurrentTVShow show = new CurrentTVShow(Integer.parseInt(dataItem.num), dataItem.img, dataItem.lnk, dataItem.name, dataItem.air);
-          result.getList().add(show);
+      @Override public List<CurrentTVShow> call(final List<CurrentTVShowEnvelope> data) {
+        List<CurrentTVShow> result = new ArrayList<CurrentTVShow>();
+        for (int i = 0; i < data.size(); i++) {
+          CurrentTVShowEnvelope dataItem = data.get(i);
+          result.add(new CurrentTVShow(dataItem.num, dataItem.img, dataItem.lnk, dataItem.name, dataItem.air));
         }
         return result;
       }
@@ -54,14 +52,14 @@ public class TVGuideService {
   }
 
   private interface RealTVGuideService {
-    @GET("/tvguide/showtrends.php") Observable<CurrentTVShowListEnvelope> getTrendingShows();
+    @GET("/tvguide/showtrends.php") Observable<List<CurrentTVShowEnvelope>> getTrendingShows();
 
-    @GET("/tvguide/searchShows.php") Observable<CurrentTVShowsEnvelope> searchShows(@Query("url") String url);
+    @GET("/tvguide/searchShows.php") Observable<CurrentTVShowEnvelope> searchShows(@Query("url") String url);
 
-    @GET("/tvguide/getShowInfo.php") Observable<CurrentTVShowsEnvelope> getShowDetails(@Query("url") String url);
+    @GET("/tvguide/getShowInfo.php") Observable<CurrentTVShowEnvelope> getShowDetails(@Query("url") String url);
   }
 
   private interface RealTVScheduleService {
-    @GET("/feeds/fullschedule.php") Observable<CurrentTVShowsEnvelope> getFeed(@Query("country") String name);
+    @GET("/feeds/fullschedule.php") Observable<CurrentTVShowEnvelope> getFeed(@Query("country") String name);
   }
 }
